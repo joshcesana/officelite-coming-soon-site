@@ -1,0 +1,3 @@
+.formInput {
+    @apply pt-1 pb-5 w-full bg-transparent border-b border-blue-gray border-opacity-50 placeholder-blue-gray placeholder-opacity-50 pl-4  text-dark-blue text-base focus:outline-none focus:ring-0 focus:ring-primary;
+}

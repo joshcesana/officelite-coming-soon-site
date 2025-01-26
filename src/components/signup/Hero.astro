@@ -1,0 +1,25 @@
+---
+import Countdown from "../Countdown.astro"
+---
+
+<section
+    class="flex flex-col gap-8 sm:gap-10 pt-20 pb-16 sm:pb-[104px] xl:p-0 items-center sm:pt-[6.5rem] max-w-container xl:w-full mx-auto"
+    role="region"
+    aria-labelledby="hero-heading"
+>
+    <!-- Accessible Heading -->
+    <div class="flex flex-col gap-6 sm:pr-2">
+        <h1 id="hero-heading" class="text-h1-mobile xl:text-h1 font-bold text-balance text-center xl:text-left text-dark-blue xl:pr-4">
+            Work smarter. Save time.
+        </h1>
+        <p class="text-body2 sm:px-16 xl:text-h2 text-blue-gray leading-[1.625rem] text-center xl:text-left xl:p-0">
+            Easily manage your projects. Get on the list and receive in-app perks available only to early subscribers. We are moving into
+            final development and getting ready for official launch soon.
+        </p>
+    </div>
+
+    <!-- Countdown Component -->
+    <div class="flex justify-center xl:justify-start w-full max-w-[445px] xl:max-w-full">
+        <Countdown isDarkMode={false} />
+    </div>
+</section>

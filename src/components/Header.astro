@@ -1,0 +1,10 @@
+---
+import { Image } from "astro:assets"
+import LogoImage from "../images/shared/logo.svg"
+---
+
+<header class="flex mx-auto justify-center pt-[2.875rem] md:justify-start max-w-container w-full md:pt-[72px] xl:pt-20" role="banner">
+    <a href="/" aria-label="Officelite homepage">
+        <Image src={LogoImage} alt="Officelite logo" loading="eager" />
+    </a>
+</header>

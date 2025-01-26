@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets"
+import HeroImage from "../images/home/illustration-charts.svg"
+import ButtonLink from "../components/ButtonLink.astro"
+---
+
+<section
+    class="flex flex-col sm:flex-row gap-8 sm:gap-0 pt-20 items-center sm:pt-[6.5rem] max-w-container mx-auto"
+    role="region"
+    aria-label="Hero section"
+>
+    <Image
+        src={HeroImage}
+        loading="eager"
+        alt="An illustration showing a set of charts and analytics"
+        class="xl:w-5/12 sm:order-2 w-full max-w-[24rem] sm:w-1/2 md:max-w-full px-16 sm:pr-0 sm:pl-10 xl:pl-0"
+    />
+    <div class="flex flex-col gap-6 sm:order-1 xl:w-7/12 sm:pr-2 sm:w-1/2">
+        <h1 class="text-h1-mobile xl:text-h1 font-bold text-center sm:text-left text-dark-blue xl:pr-4">
+            A simple solution to complex tasks is coming soon
+        </h1>
+        <p class="text-body2 xl:text-h2 text-blue-gray leading-[1.625rem] text-center sm:text-left">
+            Say goodbye to inefficient juggling of multiple apps, teams, and projects. Officelite is the new collaboration platform built
+            with an intuitive interface to improve productivity.
+        </p>
+        <ButtonLink href="/signup" text="Get Started" class="bg-primary text-white mx-auto sm:ml-0 sm:mr-auto drop-shadow-primary-button" />
+    </div>
+</section>

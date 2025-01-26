@@ -1,0 +1,40 @@
+---
+import Countdown from "./Countdown.astro"
+import ButtonLink from "./ButtonLink.astro"
+---
+
+<footer
+    role="contentinfo"
+    aria-label="Footer section with countdown Countdown"
+    class="bg-image -mt-[777px] sm:-mt-[510px] xl:-mt-[254px] xl:pt-[345px] pt-[877px] sm:pt-[610px] px-6 md:px-10 pb-[100px] xl:pb-[91px] bg-dark-navy text-white"
+>
+    <div class="flex flex-col xl:flex-row xl:justify-between xl:items-center max-w-container mx-auto gap-[18px]">
+        <Countdown />
+        <div class="text-center pt-8 sm:pt-12">
+            <ButtonLink href="/signup" text="Get Started" class="bg-primary text-white" />
+        </div>
+    </div>
+</footer>
+
+<style>
+    .bg-image {
+        background-image: url("../images/home/bg-pattern-footer.svg");
+        background-repeat: no-repeat;
+        background-size: 1202px;
+        background-position: top 138px center;
+    }
+
+    @media screen(sm) {
+        .bg-image {
+            background-size: 1454px;
+            background-position: top 34px center;
+        }
+    }
+
+    @media screen(xl) {
+        .bg-image {
+            background-size: 2036px;
+            background-position: top -590px left -610px;
+        }
+    }
+</style>

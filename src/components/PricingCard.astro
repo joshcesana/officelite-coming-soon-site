@@ -1,0 +1,50 @@
+---
+import ButtonLink from "./ButtonLink.astro"
+
+const { title, price, description, features, isDark, buttonClasses } = Astro.props
+---
+
+<article
+    role="article"
+    aria-labelledby="pricing-card-title"
+    class={`flex xl:w-full rounded-2xl flex-col items-center sm:items-start xl:items-center p-10 sm:p-12 xl:p-10 ${isDark ? "bg-primary text-white bg-image" : "bg-white text-dark-blue"}`}
+>
+    <h3 id="pricing-card-title" class="text-h2 font-bold">{title}</h3>
+    <div
+        class="pt-10 pb-6 xl:pb-8 sm:pt-2 xl:pt-10 flex flex-col items-center gap-14 sm:gap-24 xl:gap-14 sm:flex-row sm:justify-between xl:flex-col sm:w-full"
+    >
+        <div class="text-center sm:text-left xl:text-center">
+            <p class="text-h1 font-bold">{price}</p>
+            <p class="text-body2 pt-3">{description}</p>
+        </div>
+        <ul
+            class={`flex flex-col text-nowrap gap-3 text-body2 sm:text-left xl:text-center text-center ${isDark ? "text-white" : "text-blue-gray"}`}
+        >
+            {features.map((feature) => <li class="min-w-[220px]">{feature}</li>)}
+        </ul>
+    </div>
+    <ButtonLink href="/signup" text="Try for free" class={buttonClasses} />
+</article>
+
+<style>
+    .bg-image {
+        background-image: url("../images/home/bg-pattern-pricing.svg");
+        background-repeat: no-repeat;
+        background-size: 880px;
+        background-position: top -371px center;
+    }
+
+    @media screen(sm) {
+        .bg-image {
+            background-size: 853px;
+            background-position: top -274px left -308px;
+        }
+    }
+
+    @media screen(xl) {
+        .bg-image {
+            background-size: 804px;
+            background-position: top -340px left -228px;
+        }
+    }
+</style>

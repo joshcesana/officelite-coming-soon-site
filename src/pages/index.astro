@@ -1,11 +1,45 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro"
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from "../components/Header.astro"
+import Hero from "../components/Hero.astro"
+import Pricing from "../components/Pricing.astro"
+import Footer from "../components/Footer.astro"
+import SkipToContentLink from "../components/SkipToContentLink.astro"
+
+const title = "officelite coming soon"
+const description =
+    "Say goodbye to inefficient juggling of multiple apps, teams, and projects. Officelite is the new collaboration platform built with an intuitive interface to improve productivity."
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={title} description={description}>
+    <SkipToContentLink />
+    <main class="px-6 md:px-10 2xl:px-0 bg-image" id="main-content" role="main" class="">
+        <Header />
+        <Hero />
+        <Pricing />
+    </main>
+    <Footer />
+</BaseLayout>
+
+<style>
+    .bg-image {
+        background-image: url("../images/home/bg-pattern-header.svg");
+        background-repeat: no-repeat;
+        background-size: 458px;
+        background-position: top -168px center;
+    }
+    @media screen(sm) {
+        .bg-image {
+            background-size: 666px;
+            background-position: top -108px right -278px;
+        }
+    }
+
+    @media screen(xl) {
+        .bg-image {
+            background-size: 973px;
+            background-position: top -240px right -243px;
+        }
+    }
+</style>

@@ -1,0 +1,53 @@
+---
+import PricingCard from "./PricingCard.astro"
+
+const darkButtonClasses = "bg-white text-primary mx-auto sm:ml-0 sm:mr-auto xl:mx-auto"
+const lightButtonClasses = "bg-primary bg-opacity-15 text-primary mx-auto sm:ml-0 sm:mr-auto xl:mx-auto"
+
+const plans = [
+    {
+        title: "Basic",
+        price: "Free",
+        description: "Up to 5 users for free",
+        features: ["Basic document collaboration", "2 GB storage", "Great security and support"],
+        isDark: false,
+        buttonClasses: lightButtonClasses,
+    },
+    {
+        title: "Pro",
+        price: "$9.99",
+        description: "Per user, billed monthly",
+        features: ["All essential integrations", "50 GB storage", "More control and insights"],
+        isDark: true,
+        buttonClasses: darkButtonClasses,
+    },
+    {
+        title: "Ultimate",
+        price: "$19.99",
+        description: "Per user, billed monthly",
+        features: ["Robust work management", "100 GB storage", "VIP support"],
+        isDark: false,
+        buttonClasses: lightButtonClasses,
+    },
+]
+---
+
+<section
+    role="region"
+    aria-label="Pricing Plans"
+    class="flex flex-col xl:flex-row xl:justify-between gap-8 max-w-container mx-auto mt-[6.25rem]"
+>
+    <h2 class="sr-only">Our Plans</h2>
+    {
+        plans.map((plan) => (
+            <PricingCard
+                title={plan.title}
+                price={plan.price}
+                description={plan.description}
+                features={plan.features}
+                isDark={plan.isDark}
+                buttonClasses={plan.buttonClasses}
+            />
+        ))
+    }
+</section>

@@ -1,0 +1,84 @@
+---
+const { isDarkMode = true } = Astro.props
+---
+
+<div class="flex flex-col gap-[18px] sm:gap-2">
+    <h3 class={`${isDarkMode ? "text-white" : "text-dark-blue"} uppercase xl:text-left text-center text-h3 font-bold`}>
+        Coming <span class="text-primary">4 Apr 2025</span>
+    </h3>
+    <div class="flex justify-center xl:justify-start gap-3 sm:gap-4 w-full max-w-[370px] mx-auto">
+        <div class={`card ${isDarkMode ? "card-bg-dark" : "card-bg-light"}`}>
+            <div id="days" class="count">-</div>
+            <div class={`unit ${isDarkMode ? "unit-dark" : "unit-light"}`}>days</div>
+        </div>
+        <div class={`card ${isDarkMode ? "card-bg-dark" : "card-bg-light"}`}>
+            <div id="hours" class="count">-</div>
+            <div class={`unit ${isDarkMode ? "unit-dark" : "unit-light"}`}>hours</div>
+        </div>
+        <div class={`card ${isDarkMode ? "card-bg-dark" : "card-bg-light"}`}>
+            <div id="minutes" class="count">-</div>
+            <div class={`unit ${isDarkMode ? "unit-dark" : "unit-light"}`}>min</div>
+        </div>
+        <div class={`card ${isDarkMode ? "card-bg-dark" : "card-bg-light"}`}>
+            <div id="seconds" class="count">-</div>
+            <div class={`unit ${isDarkMode ? "unit-dark" : "unit-light"}`}>sec</div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        @apply flex-1 pt-3 pb-4 max-w-[90px] rounded-lg text-center sm:min-w-[105px] sm:py-5;
+    }
+
+    @media screen(sm) {
+        .card {
+            @apply rounded-xl;
+        }
+    }
+
+    .card-bg-dark {
+        @apply bg-dark-blue text-white;
+    }
+
+    .card-bg-light {
+        @apply bg-primary/10 text-primary;
+    }
+
+    .count {
+        @apply text-[32px] font-bold sm:text-h1;
+    }
+
+    .unit {
+        @apply text-xs sm:text-sm font-bold;
+    }
+
+    .unit-dark {
+        @apply text-white/50;
+    }
+
+    .unit-light {
+        @apply text-dark-blue/50;
+    }
+</style>
+
+<script is:inline>
+    const targetDate = new Date("2025-04-04").getTime()
+
+    function updateCountdown() {
+        const now = new Date().getTime()
+        const timeLeft = targetDate - now
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60))
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000)
+
+        document.getElementById("days").innerText = days.toString().padStart(2, "0")
+        document.getElementById("hours").innerText = hours.toString().padStart(2, "0")
+        document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0")
+        document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0")
+    }
+
+    updateCountdown()
+    setInterval(updateCountdown, 1000)
+</script>

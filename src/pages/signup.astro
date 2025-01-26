@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import SkipToContentLink from "../components/SkipToContentLink.astro"
+import Header from "../components/Header.astro"
+import Hero from "../components/signup/Hero.astro"
+import Form from "../components/signup/Form"
+
+const title = "Sign up for officelite"
+const description =
+    "Signup for officelite. Say goodbye to inefficient juggling of multiple apps, teams, and projects. Officelite is the new collaboration platform built with an intuitive interface to improve productivity."
+---
+
+<BaseLayout title={title} description={description}>
+    <SkipToContentLink />
+    <main class="flex flex-col xl:flex-row" id="main-content" role="main">
+        <section aria-labelledby="hero-heading" class="px-6 md:px-10 2xl:px-0 max-w-container mx-auto">
+            <Header />
+            <div class="flex flex-col xl:flex-row xl:gap-[125px] items-center xl:pt-20 w-full">
+                <Hero />
+                <Form client:visible />
+            </div>
+        </section>
+        <aside
+            aria-hidden="true"
+            class="xl:fixed xl:-z-10 xl:top-0 xl:right-0 xl:h-full xl:m-0 bg-image xl:w-[30%] -mt-[239px] sm:-mt-[236px] pt-0 px-6 md:px-10 pb-[360px] bg-dark-navy text-white"
+        >
+        </aside>
+    </main>
+</BaseLayout>
+
+<style>
+    .bg-image {
+        background-image: url("../images/home/bg-pattern-footer.svg");
+        background-repeat: no-repeat;
+        background-size: 1202px;
+        background-position: top -482px center;
+        transform: scaleY(-1);
+    }
+
+    @media screen(sm) {
+        .bg-image {
+            background-size: 1454px;
+            background-position: top -550px center;
+        }
+    }
+
+    @media screen(xl) {
+        .bg-image {
+            background-size: 2036px;
+            background-position: top -222px left -728px;
+            transform: scaleY(-1) scaleX(-1);
+        }
+    }
+</style>
