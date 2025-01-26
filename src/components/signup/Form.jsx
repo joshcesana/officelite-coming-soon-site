@@ -77,7 +77,7 @@ const DropdownForm = () => {
                             src={ArrowDownIcon.src}
                             alt=""
                             className={`mr-6 w-[13px] h-[8px] transition duration-300 ${
-                                isDropdownOpen ? "rotate-180" : ""
+                                isDropdownOpen ? "scale-[-100%]" : "scale-[100%]"
                             }`}
                         />
                     </button>
